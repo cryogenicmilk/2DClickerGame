@@ -7,6 +7,7 @@ public class ToastClickCon : MonoBehaviour
     [SerializeField] Button _button;
     [SerializeField] ScoreManager _scoreManager;
     [SerializeField] UIManager _uiManager;
+    [SerializeField] DamageCalculator _damageCalculator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,7 +17,9 @@ public class ToastClickCon : MonoBehaviour
 
     private void OnClickToastButton()
     {
-        _scoreManager.AddBaseScore();
+        DamageResult result = _damageCalculator.CalcDMG();
+
+        _scoreManager.AddScore(result);
         _uiManager.UpdateUI();
     }
 }

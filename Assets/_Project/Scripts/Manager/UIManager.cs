@@ -14,6 +14,25 @@ public class UIManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        _scoreText.text = $"Score : {_scoreManager.CurrentScore:0}";
+        _scoreText.text = $"Score : {_scoreManager.CurrentScore:0.0}";
+    }
+
+    public void ShowDamageTextType(DamageResult result)
+    {
+        switch (result.Type)
+        {
+            case DamageType.Normal:
+                Debug.Log("ノーマル");
+                break;
+            case DamageType.Crit:
+                Debug.Log("クリティカル");
+                break;
+            case DamageType.DirectHit:
+                Debug.Log("ダイレクト");
+                break;
+            case DamageType.CritDirect:
+                Debug.Log("クリダイ!!");
+                break;
+        }
     }
 }

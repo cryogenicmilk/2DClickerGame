@@ -2,21 +2,29 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] float _baseDMG = 1;
+    private double _currentScore = 0;
+    public double CurrentScore => _currentScore;
 
-    private float _currentScore = 0;
-    public float CurrentScore => _currentScore;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    public void AddBaseScore()
+    public void AddScore(DamageResult result)
     {
-        AddScore(_baseDMG);
-    }
+        _currentScore += result.Damage;
 
-    private void AddScore(float addScore)
-    {
-        _currentScore += addScore;
+        switch (result.Type)
+        {
+            case DamageType.Normal:
+                Debug.Log("ノーマル");
+                break;
+            case DamageType.Crit:
+                Debug.Log("クリティカル");
+                break;
+            case DamageType.DirectHit:
+                Debug.Log("ダイレクト");
+                break;
+            case DamageType.CritDirect:
+                Debug.Log("クリダイ!!");
+                break;
+        }
+
         Debug.Log("ScoreManager:現在のスコア: " + _currentScore);
     }
 }

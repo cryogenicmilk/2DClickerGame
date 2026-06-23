@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 123340072}
   - component: {fileID: 123340074}
   m_Layer: 0
-  m_Name: Toaster
+  m_Name: ToasterComp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,6 +226,7 @@ MonoBehaviour:
   _button: {fileID: 1447687401}
   _scoreManager: {fileID: 1005369875}
   _uiManager: {fileID: 885071791}
+  _damageCalculator: {fileID: 487606216}
 --- !u!1 &235469647
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +608,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465570441}
   m_CullTransparentMesh: 1
+--- !u!1 &487606215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 487606217}
+  - component: {fileID: 487606216}
+  m_Layer: 0
+  m_Name: DamageCalculator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &487606216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487606215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a8536b854895341873acfb6d588b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageCalculator
+  _baseDamage: 1
+  _baseDamageUpAmount: 0.1
+  _critRate: 0.05
+  _maxCritRate: 0.5
+  _critMul: 2
+  _directHitRate: 0.1
+  _maxDirectHitRate: 0.75
+  _directHitMul: 1.25
+--- !u!4 &487606217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487606215}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.39723, y: -0.6017, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,7 +1289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efeb7d24e827084bbaeda5f79776ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
-  _baseDMG: 1
 --- !u!4 &1005369876
 Transform:
   m_ObjectHideFlags: 0
@@ -2280,3 +2332,4 @@ SceneRoots:
   - {fileID: 123340073}
   - {fileID: 885071792}
   - {fileID: 1005369876}
+  - {fileID: 487606217}
