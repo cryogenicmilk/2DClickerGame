@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,10 +10,23 @@ public class ToastClickCon : MonoBehaviour
     [SerializeField] UIManager _uiManager;
     [SerializeField] DamageCalculator _damageCalculator;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Click Reaction")]
+    private Vector3 _defaultScale; // 記憶用
+    [SerializeField] private Transform _toasterTrans;
+
+    [SerializeField] private float _squashTime = 0.05f;
+    [SerializeField] private float _stretchTime = 0.05f;
+    [SerializeField] private float _returnTime = 0.05f;
+
+    [SerializeField] private Vector3 _squashScaleMul = new Vector3(1.15f, 0.85f, 1f);
+    [SerializeField] private Vector3 _stretchScaleMul = new Vector3(0.85f, 1.15f, 1f);
+
+    private Coroutine _clickReactionCoroutine;
+
     void Start()
     {
         _button.onClick.AddListener(OnClickToastButton);
+        _defaultScale = _toasterTrans.localScale;
     }
 
     private void OnClickToastButton()
@@ -21,5 +35,46 @@ public class ToastClickCon : MonoBehaviour
 
         _scoreManager.AddScore(result);
         _uiManager.UpdateUI();
+
+        // reaction
+        if (_clickReactionCoroutine != null)
+        {
+            StopCoroutine(_clickReactionCoroutine);
+        }
+
+        _clickReactionCoroutine = StartCoroutine(ClickReaction());
+    }
+
+    private IEnumerator ClickReaction()
+    {
+        // 初期サイズに合わせる
+        Vector3 squashScale = Vector3.Scale(_defaultScale, _squashScaleMul);
+        Vector3 stretchScale = Vector3.Scale(_defaultScale, _stretchScaleMul);
+
+        // 潰れる
+        yield return ChangeScale(_defaultScale, squashScale, _squashTime);
+
+        // 細く伸びる
+        yield return ChangeScale(squashScale, stretchScale, _stretchTime);
+
+        // 元に戻る
+        yield return ChangeScale(stretchScale, _defaultScale, _returnTime);
+    }
+
+    private IEnumerator ChangeScale(Vector3 startScale, Vector3 endScale, float duration)
+    {
+        float timer = 0f;
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+
+            float t = timer / duration;
+            t = Mathf.Clamp01(t);
+
+            _toasterTrans.localScale = Vector3.Lerp(startScale, endScale, t);
+            yield return null;
+        }
+        _toasterTrans.localScale = endScale;
     }
 }

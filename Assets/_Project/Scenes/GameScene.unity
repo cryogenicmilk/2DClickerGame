@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 123340072}
   - component: {fileID: 123340074}
   m_Layer: 0
-  m_Name: ToasterComp
+  m_Name: ToasterObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,6 +227,12 @@ MonoBehaviour:
   _scoreManager: {fileID: 1005369875}
   _uiManager: {fileID: 885071791}
   _damageCalculator: {fileID: 487606216}
+  _toasterTrans: {fileID: 123340073}
+  _squashTime: 0.05
+  _stretchTime: 0.05
+  _returnTime: 0.05
+  _squashScaleMul: {x: 1.15, y: 0.85, z: 1}
+  _stretchScaleMul: {x: 0.85, y: 1.15, z: 1}
 --- !u!1 &235469647
 GameObject:
   m_ObjectHideFlags: 0
