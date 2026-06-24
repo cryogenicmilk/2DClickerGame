@@ -10,6 +10,10 @@ public class ToastClickCon : MonoBehaviour
     [SerializeField] UIManager _uiManager;
     [SerializeField] DamageCalculator _damageCalculator;
 
+    [Header("ToastProjectile")]
+    [SerializeField] ToastProjectile _toastPrefab;
+    [SerializeField] Transform _toastSpawnPoint;
+
     [Header("Click Reaction")]
     private Vector3 _defaultScale; // 記憶用
     [SerializeField] private Transform _toasterTrans;
@@ -29,6 +33,7 @@ public class ToastClickCon : MonoBehaviour
         _defaultScale = _toasterTrans.localScale;
     }
 
+    // 全知全能すべての親
     private void OnClickToastButton()
     {
         DamageResult result = _damageCalculator.CalcDMG();
@@ -43,7 +48,11 @@ public class ToastClickCon : MonoBehaviour
         }
 
         _clickReactionCoroutine = StartCoroutine(ClickReaction());
+
+        SpawnToast(result.Type);
     }
+
+    #region クリック時のリアクション関係
 
     private IEnumerator ClickReaction()
     {
@@ -77,4 +86,18 @@ public class ToastClickCon : MonoBehaviour
         }
         _toasterTrans.localScale = endScale;
     }
+
+    #endregion
+
+    #region クリック時に飛ばすパン・トースター
+
+    private void SpawnToast(DamageType damageType)
+    {
+        ToastProjectile toast = Instantiate(
+            _toastPrefab, _toastSpawnPoint.position, Quaternion.identity
+        );
+
+        toast.ShootToast(damageType);
+    }
+    #endregion
 }
