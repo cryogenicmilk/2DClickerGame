@@ -62,47 +62,29 @@ public class ToastProjectile : MonoBehaviour
 
     private void ShootNormal()
     {
-        StartCoroutine(NormalMovement());
+        //StartCoroutine(NormalMovement());
+        _rb.simulated = true;
+        _rb.gravityScale = 1f;
+
+        _rb.linearVelocity = new Vector2(_critX, _critY);
+
+        //Destroy(gameObject, _destroyAfterSeconds);
     }
 
-    private IEnumerator NormalMovement()
-    {
+    //private IEnumerator NormalMovement()
+    //{
 
-    }
+    //}
 
     private void ShootCrit()
     {
-        // 上に出てから落下する
-        _rb.gravityScale = _critGravity;
-        _rb.linearVelocity = Vector2.up * 2;
-
-        Destroy(gameObject, _toastLifeTime);
     }
 
     private void ShootDirectHit()
     {
-        // 上方向ランダム。下方向は含めない
-        _rb.gravityScale = _directGravity;
-
-        float randomX = Random.Range(-0.8f, 0.8f);
-        float randomY = Random.Range(0.4f, 1.0f);
-
-        Vector2 direction = new Vector2(randomX, randomY).normalized;
-        _rb.linearVelocity = direction * 2;
-
-        Destroy(gameObject, _toastLifeTime);
     }
 
     private void ShootCritDirect()
     {
-        // 画面外までぶっ飛ぶ
-        _rb.gravityScale = _noGravity;
-
-        //float randomX = Random.Range(-0.3f, 0.3f);
-        Vector2 direction = new Vector2(1f, 1f).normalized;
-
-        _rb.linearVelocity = direction * 2;
-
-        Destroy(gameObject, _toastLifeTime);
     }
 }

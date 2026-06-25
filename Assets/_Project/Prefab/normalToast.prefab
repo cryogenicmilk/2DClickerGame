@@ -138,7 +138,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4, y: 1.75}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &1322563723907134640
 Rigidbody2D:
@@ -180,7 +180,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToastProjectile
   _rb: {fileID: 1322563723907134640}
-  _toastLifeTime: 2
-  _critGravity: 1.5
-  _directGravity: 1
-  _noGravity: 0
+  _spriteRenderer: {fileID: 0}
+  _normalOffset: {x: -0.7, y: 1}
+  _normalMoveDuration: 0.45
+  _normalFadeStart: 0.25
+  _critY: 6
+  _critX: 7
+  _directY: 1
+  _directX: 1
+  _critDirectSpeed: 10
+  _CritDirectMovement: {x: 1, y: 1}
