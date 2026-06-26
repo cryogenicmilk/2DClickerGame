@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -181,12 +181,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToastProjectile
   _rb: {fileID: 1322563723907134640}
   _spriteRenderer: {fileID: 0}
-  _normalOffset: {x: -0.7, y: 1}
+  _normalOffset: {x: 0, y: 1.5}
   _normalMoveDuration: 0.45
   _normalFadeStart: 0.25
-  _critY: 6
-  _critX: 7
-  _directY: 1
-  _directX: 1
+  _critY: 9
+  _critX: 9
+  _directY: 10
+  _directX: 3
+  _critDirectY: 10
+  _critDirectX: 20
   _critDirectSpeed: 10
-  _CritDirectMovement: {x: 1, y: 1}
