@@ -38,7 +38,7 @@ public class ToastClickCon : MonoBehaviour
     {
         DamageResult result = _damageCalculator.CalcDMG();
 
-        _scoreManager.AddScore(result);
+        //_scoreManager.AddScore(result);
         _uiManager.UpdateUI();
 
         // reaction

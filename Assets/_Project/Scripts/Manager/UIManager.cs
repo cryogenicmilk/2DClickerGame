@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateScoreUI()
     {
-        _scoreText.text = $"Score : {_scoreManager.CurrentScore:0.0}";
+        _scoreText.text = $"{FormatNumber(_scoreManager.CurrentScore)} トースト";
     }
 
     private void UpdateUpgradeUI()
@@ -64,5 +64,17 @@ public class UIManager : MonoBehaviour
 
         //_autoLvText.text = $"LV.{_upgradeManager.AutoLevel}";
         //_autoCostText.text = $"{_upgradeManager.AutoCurrentCost}";
+    }
+
+    private string FormatNumber(double value)
+    {
+        // 100万未満は普通に表示
+        if (value < 1_000_000)
+        {
+            return value.ToString("0");
+        }
+
+        // 100万以上は 1.23e+6 みたいに表示
+        return value.ToString("0.##e+0");
     }
 }
