@@ -11,7 +11,7 @@ public class ToastClickCon : MonoBehaviour
     [SerializeField] DamageCalculator _damageCalculator;
 
     [Header("ToastProjectile")]
-    [SerializeField] ToastProjectile _toastPrefab;
+    [SerializeField] private ToastPool _toastPool;
     [SerializeField] Transform _toastSpawnPoint;
 
     [Header("Click Reaction")]
@@ -93,9 +93,10 @@ public class ToastClickCon : MonoBehaviour
 
     private void SpawnToast(DamageType damageType)
     {
-        ToastProjectile toast = Instantiate(
-            _toastPrefab, _toastSpawnPoint.position, Quaternion.identity
-        );
+        ToastProjectile toast = _toastPool.GetToast(
+        _toastSpawnPoint.position,
+        Quaternion.identity
+         );
 
         toast.ShootToast(damageType);
     }

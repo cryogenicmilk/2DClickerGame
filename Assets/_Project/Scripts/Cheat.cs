@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class Cheat : MonoBehaviour
@@ -8,17 +6,19 @@ public class Cheat : MonoBehaviour
     [SerializeField] private ScoreManager _scoreManager = null;
     [SerializeField] private UIManager _uiManager = null;
 
+    [Header("Toast Test")]
+    [SerializeField] private ToastPool _toastPool;
+    [SerializeField] private Transform _toastSpawnPoint;
+
+    [Header("Damage Type Buttons")]
     [SerializeField] private Button _normal;
     [SerializeField] private Button _crit;
     [SerializeField] private Button _direct;
     [SerializeField] private Button _critDirect;
 
+    [Header("Score Cheat Buttons")]
     [SerializeField] private Button _addScore1000;
     [SerializeField] private Button _addScore1000000;
-    //[SerializeField] private Button _spawn = null;
-
-    [SerializeField] private ToastProjectile _toastProjectilePrefab;
-    [SerializeField] private Transform _toastSpawnPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,14 +27,14 @@ public class Cheat : MonoBehaviour
         _crit.onClick.AddListener(() => SpawnToast(DamageType.Crit));
         _direct.onClick.AddListener(() => SpawnToast(DamageType.DirectHit));
         _critDirect.onClick.AddListener(() => SpawnToast(DamageType.CritDirect));
+
         _addScore1000.onClick.AddListener(AddScore1000);
         _addScore1000000.onClick.AddListener(AddScore1000000);
     }
 
     private void SpawnToast(DamageType damageType)
     {
-        ToastProjectile toast = Instantiate(
-            _toastProjectilePrefab,
+        ToastProjectile toast = _toastPool.GetToast(
             _toastSpawnPoint.position,
             Quaternion.identity
         );
