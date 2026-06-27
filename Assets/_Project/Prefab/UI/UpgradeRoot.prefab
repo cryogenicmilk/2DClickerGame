@@ -290,7 +290,7 @@ GameObject:
   m_Layer: 5
   m_Name: BaseLV
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -404,9 +404,9 @@ GameObject:
   - component: {fileID: 5432807937273954048}
   - component: {fileID: 4958607737401236005}
   m_Layer: 5
-  m_Name: LVtxt
+  m_Name: BaseLvTxt
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -541,9 +541,9 @@ GameObject:
   - component: {fileID: 7788912661822462154}
   - component: {fileID: 5078004283231978200}
   m_Layer: 5
-  m_Name: LVtxt
+  m_Name: AUTOLvTxt
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -679,7 +679,7 @@ GameObject:
   - component: {fileID: 7846627258302043691}
   - component: {fileID: 4545223896967595312}
   m_Layer: 5
-  m_Name: BaseDMG
+  m_Name: BaseRate
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1003,7 +1003,7 @@ GameObject:
   m_Layer: 5
   m_Name: DirectRate
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1142,7 +1142,7 @@ GameObject:
   m_Layer: 5
   m_Name: DHTLV
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1258,7 +1258,7 @@ GameObject:
   m_Layer: 5
   m_Name: CritRate
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1395,7 +1395,7 @@ GameObject:
   m_Layer: 5
   m_Name: CRITCost
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1533,7 +1533,7 @@ GameObject:
   m_Layer: 5
   m_Name: DHTCost
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1808,7 +1808,7 @@ GameObject:
   m_Layer: 5
   m_Name: BaseCost
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1944,9 +1944,9 @@ GameObject:
   - component: {fileID: 5321887193364101261}
   - component: {fileID: 5670149528064780554}
   m_Layer: 5
-  m_Name: LVtxt
+  m_Name: CRITLvTxt
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2421,7 +2421,7 @@ GameObject:
   m_Layer: 5
   m_Name: AUTOLV
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2610,7 +2610,7 @@ GameObject:
   - component: {fileID: 6572863884654864743}
   - component: {fileID: 83802171613859605}
   m_Layer: 5
-  m_Name: HintBG
+  m_Name: OddsHint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3705,9 +3705,9 @@ GameObject:
   - component: {fileID: 1915016720494627788}
   - component: {fileID: 2863469669229997804}
   m_Layer: 5
-  m_Name: LVtxt
+  m_Name: DHTLvTxt
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3844,7 +3844,7 @@ GameObject:
   m_Layer: 5
   m_Name: AUTOCost
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4158,7 +4158,7 @@ GameObject:
   m_Layer: 5
   m_Name: CRITLV
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

@@ -62,7 +62,7 @@ public class DamageCalculator : MonoBehaviour
     /// <summary>
     /// 強化で上昇するステータス
     /// </summary>
-    public void AddDamage()
+    public void AddBase()
     {
         _baseDamage += _baseDamageUpAmount;
     }
@@ -76,4 +76,7 @@ public class DamageCalculator : MonoBehaviour
     {
         _directHitRate = Mathf.Clamp(_directHitRate + addRate, _directHitRate, _maxDirectHitRate);// minを初期値にして安全
     }
+
+    public float CritRate => _critRate;
+    public float DirectRate => _directHitRate;
 }

@@ -27,4 +27,20 @@ public class ScoreManager : MonoBehaviour
 
         Debug.Log("ScoreManager:現在のスコア: " + _currentScore);
     }
+
+    public bool SpendScore(double cost)
+    {
+        if (_currentScore < cost)
+        {
+            return false;
+        }
+        _currentScore -= cost;
+        return true;
+    }
+
+    public void AddScore(double score)
+    {
+        _currentScore += score;
+        Debug.Log("ScoreManager:現在のスコア: " + _currentScore);
+    }
 }
