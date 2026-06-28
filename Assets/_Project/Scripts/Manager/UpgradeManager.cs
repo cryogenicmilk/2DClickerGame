@@ -13,11 +13,9 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private Button _critUpgradeButton;
     [SerializeField] private Button _directUpgradeButton;
 
-    [Header("ボタンの見た目")]
-    [SerializeField] private Image _critButtonImage;
-    [SerializeField] private Image _directButtonImage;
-    [SerializeField] private Color _normalButtonColor;
-    [SerializeField] private Color _maxButtonColor = Color.gray;
+    [Header("最大時の見た目")]
+    [SerializeField] private GameObject _critMaxOverlay;
+    [SerializeField] private GameObject _directMaxOverlay;
 
     [Header("基本アップ")]
     [SerializeField] private int _baseLv = 1;
@@ -51,6 +49,7 @@ public class UpgradeManager : MonoBehaviour
         _critCurrentCost = GetCost(_critStartCost, _critCostGrowh, _critLv);
         _directCurrentCost = GetCost(_directStartCost, _directCostGrowh, _directLv);
 
+        RefreshButtonView();
         _uiManager.UpdateUI();
     }
     //====================================================================
@@ -163,18 +162,14 @@ public class UpgradeManager : MonoBehaviour
     //====================================================================
     private void RefreshButtonView()
     {
-        if (_critButtonImage != null)
+        if (_critMaxOverlay != null)
         {
-            _critButtonImage.color = _damageCalculator.IsCritRateMax
-                ? _maxButtonColor
-                : _normalButtonColor;
+            _critMaxOverlay.SetActive(_damageCalculator.IsCritRateMax);
         }
 
-        if (_directButtonImage != null)
+        if (_directMaxOverlay != null)
         {
-            _directButtonImage.color = _damageCalculator.IsDirectRateMax
-                ? _maxButtonColor
-                : _normalButtonColor;
+            _directMaxOverlay.SetActive(_damageCalculator.IsDirectRateMax);
         }
     }
 
