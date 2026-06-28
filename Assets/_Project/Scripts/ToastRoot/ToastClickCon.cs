@@ -1,5 +1,3 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,8 +18,6 @@ public class ToastClickCon : MonoBehaviour
     [Header("Click Reaction")]
     [SerializeField] private ToasterReaction _toasterReaction;
 
-    private Coroutine _clickReactionCoroutine;
-
     void Start()
     {
         _button.onClick.AddListener(OnClickToastButton);
@@ -38,18 +34,10 @@ public class ToastClickCon : MonoBehaviour
         // フライングテキスト
         _flyingTextSpawner.Spawn(result);
 
-        // reaction
-        if (_clickReactionCoroutine != null)
-        {
-            StopCoroutine(_clickReactionCoroutine);
-        }
-
         _toasterReaction.PlayReaction();
 
         SpawnToast(result.Type);
     }
-
-    #region クリック時に飛ばすパン・トースター
 
     private void SpawnToast(DamageType damageType)
     {
@@ -60,5 +48,4 @@ public class ToastClickCon : MonoBehaviour
 
         toast.ShootToast(damageType);
     }
-    #endregion
 }

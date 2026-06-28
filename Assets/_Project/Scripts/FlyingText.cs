@@ -25,7 +25,13 @@ public class FlyingText : MonoBehaviour
     [SerializeField] private float _critDirectStayTime = 0.25f;
     [SerializeField] private float _critDirectFadeTime = 0.25f;
 
+    private FlyingTextSpawner _spawner;
     private Sequence _sequence;
+
+    public void SetSpawner(FlyingTextSpawner spawner)
+    {
+        _spawner = spawner;
+    }
 
     public void Play(double score, DamageType type, Vector2 anchoredPosition)
     {
@@ -52,7 +58,7 @@ public class FlyingText : MonoBehaviour
             .Append(_rectTransform.DOAnchorPosY(anchoredPosition.y + _moveY, _duration)
                 .SetEase(Ease.OutCubic))
             .Join(_text.DOFade(0f, _duration))
-            .OnComplete(() => Destroy(gameObject));
+             .OnComplete(ReturnToPool);
     }
 
     private void PlayCritDirect(double score, DamageType type, Vector2 anchoredPosition)
@@ -78,7 +84,7 @@ public class FlyingText : MonoBehaviour
                 .SetEase(Ease.OutCubic))
             .AppendInterval(_critDirectStayTime)
             .Append(_text.DOFade(0f, _critDirectFadeTime))
-            .OnComplete(() => Destroy(gameObject));
+             .OnComplete(ReturnToPool);
     }
 
     //====================================================================
@@ -94,6 +100,22 @@ public class FlyingText : MonoBehaviour
         color.a = 1f;
         _text.color = color;
     }
+
+    private void ReturnToPool()
+    {
+        _sequence?.Kill();
+        _sequence = null;
+
+        if (_spawner != null)
+        {
+            _spawner.ReturnFlyingText(this);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
 
     private string GetText(double score, DamageType type)
     {

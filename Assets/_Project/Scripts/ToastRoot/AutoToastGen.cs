@@ -4,6 +4,8 @@ public class AutoToastGen : MonoBehaviour
 {
     [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private UIManager _uiManager;
+    [SerializeField] private ToastPool _toastPool;
+    [SerializeField] private FlyingTextSpawner _flyingTextSpawner;
 
     [Header("Auto Toaster Visual")]
     [SerializeField] private AutoToaster _autoToasterPrefab;
@@ -33,7 +35,12 @@ public class AutoToastGen : MonoBehaviour
             _autoToasterParent
         );
 
-        autoToaster.Initialize(_scoreManager, _uiManager);
+        autoToaster.Initialize(
+            _scoreManager,
+            _uiManager,
+            _toastPool,
+            _flyingTextSpawner
+        );
     }
 
     private Vector3 GetRandomPositionInBox()

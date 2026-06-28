@@ -233,7 +233,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1901,7 +1901,7 @@ GameObject:
   - component: {fileID: 896696199}
   - component: {fileID: 896696201}
   m_Layer: 5
-  m_Name: BG
+  m_Name: BG_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1918,8 +1918,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1334229663}
+  m_Children: []
   m_Father: {fileID: 1783496303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -1940,7 +1939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4784314, g: 0.7058824, b: 0.7372549, a: 1}
+  m_Color: {r: 0.4784314, g: 0.7058824, b: 0.7372549, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2242,6 +2241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AutoToastGen
   _scoreManager: {fileID: 1005369875}
   _uiManager: {fileID: 885071791}
+  _toastPool: {fileID: 1323112587}
+  _flyingTextSpawner: {fileID: 1463089320}
   _autoToasterPrefab: {fileID: 8854520705414005687}
   _autoToasterParent: {fileID: 1039034055}
   _spawnArea: {fileID: 45674895}
@@ -2975,81 +2976,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToastPool
   _toastPrefab: {fileID: 3407100600661856670, guid: 978d64d71f4fed645877bac6c894bb6e, type: 3}
   _initialPoolSize: 20
---- !u!1 &1334229662
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1334229663}
-  - component: {fileID: 1334229665}
-  - component: {fileID: 1334229664}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1334229663
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334229662}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 896696198}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1033.4, y: 75.9}
-  m_SizeDelta: {x: 5000, y: 7104}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1334229664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334229662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 41f8f8e6a069547458e872d592ab6001, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1334229665
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334229662}
-  m_CullTransparentMesh: 1
 --- !u!114 &1403500194 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1527424800574547619, guid: 19ac434cc4df8d846bc2a605a5b8be6d, type: 3}
@@ -3112,6 +3038,9 @@ MonoBehaviour:
   _flyingTextPrefab: {fileID: 6089971698102276279, guid: ca69c91036c2b3d4e8ce7da71f2abf01, type: 3}
   _parent: {fileID: 1528776612}
   _spawnPoint: {fileID: 576840415}
+  _canvas: {fileID: 1783496302}
+  _worldCamera: {fileID: 519420031}
+  _initialPoolSize: 10
   _randomX: 40
   _randomY: 20
 --- !u!1 &1486481671
@@ -3528,7 +3457,7 @@ Canvas:
   m_GameObject: {fileID: 1783496299}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -4260,11 +4189,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: =====AutoToaster=====
       objectReference: {fileID: 0}
+    - target: {fileID: 8368724116311191761, guid: b562d626c55604f4c805cad20d77ed9e, type: 3}
+      propertyPath: _flyingTextSpawnPoint
+      value: 
+      objectReference: {fileID: 9007949993132792167}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b562d626c55604f4c805cad20d77ed9e, type: 3}
+--- !u!4 &9007949993132792167 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5283257395639465378, guid: b562d626c55604f4c805cad20d77ed9e, type: 3}
+  m_PrefabInstance: {fileID: 9007949993132792166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
