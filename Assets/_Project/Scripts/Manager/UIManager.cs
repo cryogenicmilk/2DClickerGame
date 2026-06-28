@@ -29,8 +29,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _directCostText;
 
     [Header("Auto")]
-    [SerializeField] private TextMeshProUGUI _autoLvText = null;
-    [SerializeField] private TextMeshProUGUI _autoCostText = null;
+    [SerializeField] private TextMeshProUGUI _autoLvText;
+    [SerializeField] private TextMeshProUGUI _autoCostText;
 
     private void Start()
     {
@@ -66,9 +66,8 @@ public class UIManager : MonoBehaviour
         ? "MAX"
         : $"{_upgradeManager.DirectCurrentCost:0}";
 
-
-        //_autoLvText.text = $"LV.{_upgradeManager.AutoLevel}";
-        //_autoCostText.text = $"{_upgradeManager.AutoCurrentCost}";
+        _autoLvText.text = $"LV.{_upgradeManager.ToasterLevel}";
+        _autoCostText.text = $"{_upgradeManager.ToasterCurrentCost}";
     }
 
     private string FormatNumber(double value)

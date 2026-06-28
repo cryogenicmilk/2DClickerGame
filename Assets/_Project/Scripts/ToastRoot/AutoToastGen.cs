@@ -2,15 +2,47 @@ using UnityEngine;
 
 public class AutoToastGen : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private ScoreManager _scoreManager;
+    [SerializeField] private UIManager _uiManager;
+
+    [Header("Auto Toaster Visual")]
+    [SerializeField] private AutoToaster _autoToasterPrefab;
+    [SerializeField] private Transform _autoToasterParent;
+
+    [Header("Spawn Area")]
+    [SerializeField] private BoxCollider2D _spawnArea;
+
+    private int _autoLevel = 0;
+
+    public int AutoLevel => _autoLevel;
+
+    public void AddAutoToaster()
     {
-        
+        _autoLevel++;
+        SpawnAutoToaster();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SpawnAutoToaster()
     {
-        
+        Vector3 spawnPosition = GetRandomPositionInBox();
+
+        AutoToaster autoToaster = Instantiate(
+            _autoToasterPrefab,
+            spawnPosition,
+            Quaternion.identity,
+            _autoToasterParent
+        );
+
+        autoToaster.Initialize(_scoreManager, _uiManager);
+    }
+
+    private Vector3 GetRandomPositionInBox()
+    {
+        Bounds bounds = _spawnArea.bounds;
+
+        float x = Random.Range(bounds.min.x, bounds.max.x);
+        float y = Random.Range(bounds.min.y, bounds.max.y);
+
+        return new Vector3(x, y, 0f);
     }
 }

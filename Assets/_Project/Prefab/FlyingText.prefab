@@ -156,8 +156,8 @@ MonoBehaviour:
   _duration: 1
   _normalScale: 1
   _specialScale: 1.25
-  _critDirectScale: 2
-  _critDirectOffset: {x: 80, y: -23.93}
+  _critDirectScale: 5
+  _critDirectOffset: {x: 136.1, y: -23.93}
   _critDirectPopScale: 1.8
   _critDirectBaseScale: 1.4
   _critDirectPopTime: 0.08

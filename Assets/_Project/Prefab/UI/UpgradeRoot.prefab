@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1244215976447563316}
   - component: {fileID: 784528297226827374}
   m_Layer: 5
-  m_Name: DHT
+  m_Name: DHTRoot
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -704,7 +704,7 @@ GameObject:
   - component: {fileID: 4545223896967595312}
   - component: {fileID: 7116175394948806990}
   m_Layer: 5
-  m_Name: BaseRate
+  m_Name: BaseRateRoot
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 5020572217164555438}
   - component: {fileID: 8979301497423751163}
   m_Layer: 5
-  m_Name: AUTO
+  m_Name: AUTORoot
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2228,7 +2228,7 @@ GameObject:
   - component: {fileID: 3306507816035654973}
   - component: {fileID: 3272573909965279954}
   m_Layer: 5
-  m_Name: CRIT
+  m_Name: CRITRoot
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
