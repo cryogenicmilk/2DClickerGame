@@ -18,13 +18,13 @@ public class ToastProjectile : MonoBehaviour
     [SerializeField] private float _critY = 1f;
     [SerializeField] private float _critX = 1f;
     [SerializeField] private float _critLifeTime = 1f;
-    [SerializeField] private float _critFadeStart = 1f;
+    [SerializeField] private float _critFadeDuration = 1f;
 
     [Header("DirectÇÃìÆÇ´")]
     [SerializeField] private float _directY = 1f;
     [SerializeField] private float _directX = 1f;
     [SerializeField] private float _directLifeTime = 3f;
-    [SerializeField] private float _directFadeStart = 2f;
+    [SerializeField] private float _directFadeDuration = 2f;
 
     [Header("CritDirectÇÃìÆÇ´")]
     [SerializeField] private float _critDirectY = 1f;
@@ -99,6 +99,8 @@ public class ToastProjectile : MonoBehaviour
     //====================================================================
     public void ShootNormal()
     {
+        AudioPlayer.Instance.PlaySE(1);
+
         // NormalÇÕï®óùÇ≈ÇÕÇ»Ç≠ÅAê‘ä€ï˚å¸Ç…Ç‰Ç¡Ç≠ÇËà⁄ìÆÇµÇƒè¡Ç¶ÇÈ
         _rb.simulated = false;
 
@@ -118,6 +120,8 @@ public class ToastProjectile : MonoBehaviour
 
     public void ShootCrit()
     {
+        AudioPlayer.Instance.PlaySE(2);
+
         _rb.simulated = true;
         _rb.gravityScale = 1f;
 
@@ -128,12 +132,14 @@ public class ToastProjectile : MonoBehaviour
 
         _Sequence
             .AppendInterval(_critLifeTime)
-            .Append(_spriteRenderer.DOFade(0f, _critLifeTime - _critFadeStart))
+            .Append(_spriteRenderer.DOFade(0f, _critLifeTime - _critFadeDuration))
             .OnComplete(ReturnToPool);
     }
 
     public void ShootDirect()
     {
+        AudioPlayer.Instance.PlaySE(3);
+
         _rb.simulated = true;
         _rb.gravityScale = 1f;
 
@@ -144,12 +150,14 @@ public class ToastProjectile : MonoBehaviour
 
         _Sequence
             .AppendInterval(_directLifeTime)
-            .Append(_spriteRenderer.DOFade(0f, _directLifeTime - _directFadeStart))
+            .Append(_spriteRenderer.DOFade(0f, _directLifeTime - _directFadeDuration))
             .OnComplete(ReturnToPool);
     }
 
     public void ShootCritDirect()
     {
+        AudioPlayer.Instance.PlaySE(4);
+
         _rb.simulated = true;
         _rb.gravityScale = 0f;
 

@@ -188,11 +188,11 @@ MonoBehaviour:
   _critY: 9
   _critX: 9
   _critLifeTime: 1
-  _critFadeStart: 0.3
+  _critFadeDuration: 0.5
   _directY: 10
   _directX: 3
   _directLifeTime: 2.5
-  _directFadeStart: 0.3
+  _directFadeDuration: 2
   _critDirectY: 10
   _critDirectX: 20
   _critDirectLifeTime: 1

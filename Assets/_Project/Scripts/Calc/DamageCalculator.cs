@@ -16,6 +16,10 @@ public class DamageCalculator : MonoBehaviour
     [SerializeField] private float _maxDirectHitRate = 0.75f; // Å‘å75%
     [SerializeField] private float _directHitMul = 1.25f;
 
+    // ãŒÀ
+    public bool IsCritRateMax => _critRate >= _maxCritRate;
+    public bool IsDirectRateMax => _directHitRate >= _maxDirectHitRate;
+
     public DamageResult CalcDMG()
     {
         // 676767676767676767

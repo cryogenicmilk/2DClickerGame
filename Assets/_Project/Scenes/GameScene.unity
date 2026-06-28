@@ -625,6 +625,10 @@ MonoBehaviour:
   _baseUpgradeButton: {fileID: 915444609}
   _critUpgradeButton: {fileID: 957391441}
   _directUpgradeButton: {fileID: 842231609}
+  _critButtonImage: {fileID: 606299588}
+  _directButtonImage: {fileID: 301722583}
+  _normalButtonColor: {r: 0.99607843, g: 0.9529412, b: 0.88235295, a: 0}
+  _maxButtonColor: {r: 0.6792453, g: 0.6292631, b: 0.55428976, a: 1}
   _baseLv: 1
   _baseStartCost: 50
   _baseCostGrowh: 1.15
@@ -757,6 +761,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261548656}
   m_CullTransparentMesh: 1
+--- !u!114 &301722583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2575846909937093161, guid: 19ac434cc4df8d846bc2a605a5b8be6d, type: 3}
+  m_PrefabInstance: {fileID: 1276886028}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!114 &360238267 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7757890503287673160, guid: 19ac434cc4df8d846bc2a605a5b8be6d, type: 3}
@@ -797,6 +812,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1323112586}
   - {fileID: 1633343188}
   - {fileID: 257110121}
   - {fileID: 1005369876}
@@ -1081,6 +1097,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &606299588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3069146810419933201, guid: 19ac434cc4df8d846bc2a605a5b8be6d, type: 3}
+  m_PrefabInstance: {fileID: 1276886028}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,7 +1313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cheat
   _scoreManager: {fileID: 1005369875}
   _uiManager: {fileID: 885071791}
-  _toastPool: {fileID: 1633343189}
+  _toastPool: {fileID: 1323112587}
   _toastSpawnPoint: {fileID: 2080463869}
   _normal: {fileID: 1309231715}
   _crit: {fileID: 909893850}
@@ -2855,6 +2882,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309231713}
   m_CullTransparentMesh: 1
+--- !u!1 &1323112585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1323112586}
+  - component: {fileID: 1323112587}
+  m_Layer: 0
+  m_Name: ToastPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1323112586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323112585}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 387072217}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1323112587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323112585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc2bcdd1b8bf094898105a17ce2211f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToastPool
+  _toastPrefab: {fileID: 3407100600661856670, guid: 978d64d71f4fed645877bac6c894bb6e, type: 3}
+  _initialPoolSize: 20
 --- !u!1 &1334229662
 GameObject:
   m_ObjectHideFlags: 0
@@ -3155,7 +3228,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1633343188}
   - component: {fileID: 1633343187}
-  - component: {fileID: 1633343189}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3190,20 +3262,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 387072217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1633343189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633343186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdc2bcdd1b8bf094898105a17ce2211f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ToastPool
-  _toastPrefab: {fileID: 3407100600661856670, guid: 978d64d71f4fed645877bac6c894bb6e, type: 3}
-  _initialPoolSize: 20
 --- !u!1 &1764992606
 GameObject:
   m_ObjectHideFlags: 0
@@ -3296,7 +3354,7 @@ GameObject:
   - component: {fileID: 1783496301}
   - component: {fileID: 1783496300}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: =====Canvas=====
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3388,11 +3446,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!82 &1819340194 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8160596815469472145, guid: c67dbbda31c643b4dada7f9b7d83239e, type: 3}
-  m_PrefabInstance: {fileID: 2067501731}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1819340197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6888412442825635125, guid: c67dbbda31c643b4dada7f9b7d83239e, type: 3}
@@ -3736,21 +3789,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 387072217}
     m_Modifications:
     - target: {fileID: 3719014807613463607, guid: c67dbbda31c643b4dada7f9b7d83239e, type: 3}
-      propertyPath: bgmSource
-      value: 
-      objectReference: {fileID: 1819340194}
-    - target: {fileID: 3719014807613463607, guid: c67dbbda31c643b4dada7f9b7d83239e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3719014807613463607, guid: c67dbbda31c643b4dada7f9b7d83239e, type: 3}
       propertyPath: seClips.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3719014807613463607, guid: c67dbbda31c643b4dada7f9b7d83239e, type: 3}
-      propertyPath: 'seClips.Array.data[0]'
+      propertyPath: 'seClips.Array.data[2]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: ef0f8f11c51176f46a8ca654a031ffa0, type: 3}
+    - target: {fileID: 3719014807613463607, guid: c67dbbda31c643b4dada7f9b7d83239e, type: 3}
+      propertyPath: 'seClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d2c2e5956203ee6429fd8dd4b84a33fb, type: 3}
+    - target: {fileID: 3719014807613463607, guid: c67dbbda31c643b4dada7f9b7d83239e, type: 3}
+      propertyPath: 'seClips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 65fbc90f04870c74e993564d480734e6, type: 3}
+    - target: {fileID: 3719014807613463607, guid: c67dbbda31c643b4dada7f9b7d83239e, type: 3}
+      propertyPath: 'seClips.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d4bfce64f9087c4ead335482257a457, type: 3}
     - target: {fileID: 6338448276059523255, guid: c67dbbda31c643b4dada7f9b7d83239e, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -3795,13 +3852,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8160596815469472145, guid: c67dbbda31c643b4dada7f9b7d83239e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8265288344141209584, guid: c67dbbda31c643b4dada7f9b7d83239e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_Volume
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3965,7 +4018,7 @@ PrefabInstance:
     - target: {fileID: 4579216657963951269, guid: 3ef22c06f01ce074ab343df60962829e, type: 3}
       propertyPath: _toastPool
       value: 
-      objectReference: {fileID: 1633343189}
+      objectReference: {fileID: 1323112587}
     - target: {fileID: 4579216657963951269, guid: 3ef22c06f01ce074ab343df60962829e, type: 3}
       propertyPath: _uiManager
       value: 

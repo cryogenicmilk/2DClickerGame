@@ -57,10 +57,15 @@ public class UIManager : MonoBehaviour
         _baseCostText.text = $"{_upgradeManager.BaseCurrentCost:0}";
 
         _critLvText.text = $"LV.{_upgradeManager.CritLevel}";
-        _critCostText.text = $"{_upgradeManager.CritCurrentCost:0}";
+        _critCostText.text = _damageCalculator.IsCritRateMax
+        ? "MAX"
+        : $"{_upgradeManager.CritCurrentCost:0}";
 
         _directLvText.text = $"LV.{_upgradeManager.DirectLevel}";
-        _directCostText.text = $"{_upgradeManager.DirectCurrentCost:0}";
+        _directCostText.text = _damageCalculator.IsDirectRateMax
+        ? "MAX"
+        : $"{_upgradeManager.DirectCurrentCost:0}";
+
 
         //_autoLvText.text = $"LV.{_upgradeManager.AutoLevel}";
         //_autoCostText.text = $"{_upgradeManager.AutoCurrentCost}";

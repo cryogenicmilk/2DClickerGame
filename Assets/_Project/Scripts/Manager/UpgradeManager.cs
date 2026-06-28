@@ -13,6 +13,12 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private Button _critUpgradeButton;
     [SerializeField] private Button _directUpgradeButton;
 
+    [Header("ボタンの見た目")]
+    [SerializeField] private Image _critButtonImage;
+    [SerializeField] private Image _directButtonImage;
+    [SerializeField] private Color _normalButtonColor;
+    [SerializeField] private Color _maxButtonColor = Color.gray;
+
     [Header("基本アップ")]
     [SerializeField] private int _baseLv = 1;
     [SerializeField] private double _baseStartCost = 50;
@@ -52,7 +58,13 @@ public class UpgradeManager : MonoBehaviour
     //====================================================================
     private void OnClickBaseUpgrade()
     {
-        if (!CanBuy(_baseCurrentCost)) return;
+        if (!CanBuy(_baseCurrentCost))
+        {
+            AudioPlayer.Instance.PlaySE(0);
+            return;
+        }
+
+        AudioPlayer.Instance.PlaySE(5);
 
         SpendScore(_baseCurrentCost);
 
@@ -60,36 +72,68 @@ public class UpgradeManager : MonoBehaviour
         _damageCalculator.AddBase();
 
         _baseCurrentCost = GetCost(_baseStartCost, _baseCostGrowh, _baseLv);
+        RefreshButtonView();
         _uiManager.UpdateUI();
     }
 
     private void OnClickCritUpgrade()
     {
+        // コストが足りてない
+        if (!CanBuy(_critCurrentCost))
+        {
+            AudioPlayer.Instance.PlaySE(0);
+            return;
+        }
+        // Max
+        if (_damageCalculator.IsCritRateMax)
+        {
+            AudioPlayer.Instance.PlaySE(0);
+            return;
+        }
 
-        if (!CanBuy(_critCurrentCost)) return;
+        AudioPlayer.Instance.PlaySE(5);
+
         SpendScore(_critCurrentCost);
 
         _critLv++;
         _damageCalculator.AddCrit(_critAddRate);
 
         _critCurrentCost = GetCost(_critStartCost, _critCostGrowh, _critLv);
+
+        RefreshButtonView();
         _uiManager.UpdateUI();
     }
 
     private void OnClickDirectUpgrade()
     {
-        if (!CanBuy(_directCurrentCost)) return;
+        // コストが足りてない
+        if (!CanBuy(_directCurrentCost))
+        {
+            AudioPlayer.Instance.PlaySE(0);
+            return;
+        }
+        // Max
+        if (_damageCalculator.IsDirectRateMax)
+        {
+            AudioPlayer.Instance.PlaySE(0);
+            return;
+        }
+
+        AudioPlayer.Instance.PlaySE(5);
+
         SpendScore(_directCurrentCost);
 
         _directLv++;
         _damageCalculator.AddDirect(_directAddRate);
 
         _directCurrentCost = GetCost(_directStartCost, _directCostGrowh, _directLv);
+
+        RefreshButtonView();
         _uiManager.UpdateUI();
     }
 
     //====================================================================
-    //BGM処理
+    //レベルごとコストが上がる計算
     //====================================================================
     private double GetCost(double startCost, double growth, int level)
     {
@@ -113,4 +157,25 @@ public class UpgradeManager : MonoBehaviour
     public double BaseCurrentCost => _baseCurrentCost;
     public double CritCurrentCost => _critCurrentCost;
     public double DirectCurrentCost => _directCurrentCost;
+
+    //====================================================================
+    //ビジュアル、SE
+    //====================================================================
+    private void RefreshButtonView()
+    {
+        if (_critButtonImage != null)
+        {
+            _critButtonImage.color = _damageCalculator.IsCritRateMax
+                ? _maxButtonColor
+                : _normalButtonColor;
+        }
+
+        if (_directButtonImage != null)
+        {
+            _directButtonImage.color = _damageCalculator.IsDirectRateMax
+                ? _maxButtonColor
+                : _normalButtonColor;
+        }
+    }
+
 }
