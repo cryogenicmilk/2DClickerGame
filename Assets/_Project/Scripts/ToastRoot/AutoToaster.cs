@@ -95,12 +95,14 @@ public class AutoToaster : MonoBehaviour
             ? _toastSpawnPoint.position
             : transform.position;
 
+        // êF
         ToastProjectile toast = _toastPool.GetToast(
             DamageType.Normal,
             spawnPosition,
             Quaternion.identity
         );
 
+        // ãììÆ
         toast.ShootToast(DamageType.Normal);
     }
 
