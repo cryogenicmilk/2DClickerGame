@@ -42,9 +42,10 @@ public class ToastClickCon : MonoBehaviour
     private void SpawnToast(DamageType damageType)
     {
         ToastProjectile toast = _toastPool.GetToast(
-        _toastSpawnPoint.position,
-        Quaternion.identity
-         );
+            damageType,
+            _toastSpawnPoint.position,
+            Quaternion.identity
+        );
 
         toast.ShootToast(damageType);
     }

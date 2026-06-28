@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8238428762717386503}
   - component: {fileID: 6989787992409794975}
   - component: {fileID: 1322563723907134640}
-  - component: {fileID: 3407100600661856670}
+  - component: {fileID: 1267333591300268444}
   m_Layer: 0
   m_Name: normalToast
   m_TagString: Untagged
@@ -167,7 +167,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3407100600661856670
+--- !u!114 &1267333591300268444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,19 +180,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToastProjectile
   _rb: {fileID: 1322563723907134640}
-  _spriteRenderer: {fileID: 0}
+  _spriteRenderer: {fileID: 8238428762717386503}
   _lifeTime: 2
-  _normalOffset: {x: 0, y: 1.5}
+  _normalOffset: {x: 1, y: 1}
   _normalMoveDuration: 0.45
   _normalFadeStart: 0.25
-  _critY: 9
-  _critX: 9
-  _critLifeTime: 1
-  _critFadeDuration: 0.5
-  _directY: 10
-  _directX: 3
-  _directLifeTime: 2.5
-  _directFadeDuration: 2
-  _critDirectY: 10
-  _critDirectX: 20
+  _critY: 4
+  _critX: 4
+  _critLifeTime: 2
+  _critFadeDuration: 1
+  _directY: 6
+  _directX: 7
+  _directLifeTime: 5
+  _directFadeDuration: 1
+  _critDirectY: 12
+  _critDirectX: 12
   _critDirectLifeTime: 1

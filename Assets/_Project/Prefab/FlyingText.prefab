@@ -155,11 +155,11 @@ MonoBehaviour:
   _moveY: 80
   _duration: 1
   _normalScale: 1
-  _specialScale: 1.25
+  _specialScale: 1.3
   _critDirectScale: 5
-  _critDirectOffset: {x: 136.1, y: -23.93}
-  _critDirectPopScale: 1.8
-  _critDirectBaseScale: 1.4
+  _critDirectOffset: {x: 136.1, y: -101.6}
+  _critDirectPopScale: 2.2
+  _critDirectBaseScale: 2
   _critDirectPopTime: 0.08
   _critDirectReturnTime: 0.12
   _critDirectStayTime: 0.25

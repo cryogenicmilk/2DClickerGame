@@ -1,5 +1,5 @@
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
 
 public class ToastProjectile : MonoBehaviour
 {
@@ -32,9 +32,10 @@ public class ToastProjectile : MonoBehaviour
     [SerializeField] private float _critDirectLifeTime = 1f;
 
     // animation
-    private Sequence _Sequence;
-
+    private Sequence _sequence;
     private ToastPool _pool;
+
+    public DamageType DamageType { get; private set; }
 
     private void Awake()
     {
@@ -79,7 +80,7 @@ public class ToastProjectile : MonoBehaviour
     {
         CancelInvoke();
 
-        _Sequence?.Kill();
+        _sequence?.Kill();
 
         transform.DOKill();
 
@@ -107,10 +108,10 @@ public class ToastProjectile : MonoBehaviour
         Vector3 startPos = transform.position;
         Vector3 endPos = startPos + (Vector3)_normalOffset;
 
-        _Sequence?.Kill();
-        _Sequence = DOTween.Sequence();
+        _sequence?.Kill();
+        _sequence = DOTween.Sequence();
 
-        _Sequence
+        _sequence
        .Append(transform.DOMove(endPos, _normalMoveDuration)
            .SetEase(Ease.InOutSine))
        .Join(_spriteRenderer.DOFade(0f, _normalMoveDuration - _normalFadeStart)
@@ -127,10 +128,10 @@ public class ToastProjectile : MonoBehaviour
 
         _rb.linearVelocity = new Vector2(_critX, _critY);
 
-        _Sequence?.Kill();
-        _Sequence = DOTween.Sequence();
+        _sequence?.Kill();
+        _sequence = DOTween.Sequence();
 
-        _Sequence
+        _sequence
             .AppendInterval(_critLifeTime)
             .Append(_spriteRenderer.DOFade(0f, _critLifeTime - _critFadeDuration))
             .OnComplete(ReturnToPool);
@@ -145,10 +146,10 @@ public class ToastProjectile : MonoBehaviour
 
         _rb.linearVelocity = new Vector2(_directX, _directY);
 
-        _Sequence?.Kill();
-        _Sequence = DOTween.Sequence();
+        _sequence?.Kill();
+        _sequence = DOTween.Sequence();
 
-        _Sequence
+        _sequence
             .AppendInterval(_directLifeTime)
             .Append(_spriteRenderer.DOFade(0f, _directLifeTime - _directFadeDuration))
             .OnComplete(ReturnToPool);
@@ -179,10 +180,15 @@ public class ToastProjectile : MonoBehaviour
         _pool = pool;
     }
 
+    public void SetDamageType(DamageType damageType)
+    {
+        DamageType = damageType;
+    }
+
     private void ReturnToPool()
     {
-        _Sequence?.Kill();
-        _Sequence = null;
+        _sequence?.Kill();
+        _sequence = null;
 
         _rb.linearVelocity = Vector2.zero;
         _rb.angularVelocity = 0f;

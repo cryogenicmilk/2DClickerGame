@@ -35,6 +35,7 @@ public class Cheat : MonoBehaviour
     private void SpawnToast(DamageType damageType)
     {
         ToastProjectile toast = _toastPool.GetToast(
+            damageType,
             _toastSpawnPoint.position,
             Quaternion.identity
         );

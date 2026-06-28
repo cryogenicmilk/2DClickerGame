@@ -96,6 +96,7 @@ public class AutoToaster : MonoBehaviour
             : transform.position;
 
         ToastProjectile toast = _toastPool.GetToast(
+            DamageType.Normal,
             spawnPosition,
             Quaternion.identity
         );

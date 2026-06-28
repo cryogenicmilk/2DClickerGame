@@ -3,45 +3,60 @@ using UnityEngine;
 
 public class ToastPool : MonoBehaviour
 {
-    [SerializeField] private ToastProjectile _toastPrefab;
-    [SerializeField] private int _initialPoolSize = 20;
+    [Header("Prefab")]
+    [SerializeField] private ToastProjectile _normalPrefab;
+    [SerializeField] private ToastProjectile _critPrefab;
+    [SerializeField] private ToastProjectile _directPrefab;
+    [SerializeField] private ToastProjectile _critDirectPrefab;
 
-    private readonly Queue<ToastProjectile> _pool = new Queue<ToastProjectile>();
+    [SerializeField] private int _initialPoolSize = 10;
+
+    private readonly Dictionary<DamageType, Queue<ToastProjectile>> _pools = new();
 
     private void Awake()
     {
-        CreatePool();
+        CreatePool(DamageType.Normal, _normalPrefab);
+        CreatePool(DamageType.Crit, _critPrefab);
+        CreatePool(DamageType.DirectHit, _directPrefab);
+        CreatePool(DamageType.CritDirect, _critDirectPrefab);
     }
 
-    private void CreatePool()
+    private void CreatePool(DamageType type, ToastProjectile prefab)
     {
-        for(int i = 0; i < _initialPoolSize; i++)
+        Queue<ToastProjectile> pool = new Queue<ToastProjectile>();
+        _pools.Add(type, pool);
+
+        for (int i = 0; i < _initialPoolSize; i++)
         {
-            ToastProjectile toast = CreateToast();
+            ToastProjectile toast = CreateToast(type, prefab);
             ReturnToast(toast);
         }
     }
 
-    private ToastProjectile CreateToast()
+    private ToastProjectile CreateToast(DamageType type, ToastProjectile prefab)
     {
-        ToastProjectile toast = Instantiate(_toastPrefab, transform);
+        ToastProjectile toast = Instantiate(prefab, transform);
         toast.SetPool(this);
+        toast.SetDamageType(type);
         return toast;
     }
 
-    public ToastProjectile GetToast(Vector3 position, Quaternion rotation)
+    public ToastProjectile GetToast(DamageType type, Vector3 position, Quaternion rotation)
     {
+        Queue<ToastProjectile> pool = _pools[type];
+
         ToastProjectile toast;
 
-        if (_pool.Count > 0)
+        if (pool.Count > 0)
         {
-            toast = _pool.Dequeue();
+            toast = pool.Dequeue();
         }
         else
         {
-            toast = CreateToast();
+            toast = CreateToast(type, GetPrefab(type));
         }
 
+        toast.transform.SetParent(null);
         toast.transform.SetPositionAndRotation(position, rotation);
         toast.gameObject.SetActive(true);
 
@@ -50,9 +65,32 @@ public class ToastPool : MonoBehaviour
 
     public void ReturnToast(ToastProjectile toast)
     {
+        DamageType type = toast.DamageType;
+
         toast.gameObject.SetActive(false);
         toast.transform.SetParent(transform);
 
-        _pool.Enqueue(toast);
+        _pools[type].Enqueue(toast);
+    }
+
+    private ToastProjectile GetPrefab(DamageType type)
+    {
+        switch (type)
+        {
+            case DamageType.Normal:
+                return _normalPrefab;
+
+            case DamageType.Crit:
+                return _critPrefab;
+
+            case DamageType.DirectHit:
+                return _directPrefab;
+
+            case DamageType.CritDirect:
+                return _critDirectPrefab;
+
+            default:
+                return _normalPrefab;
+        }
     }
 }
