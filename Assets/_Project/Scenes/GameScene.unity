@@ -3016,8 +3016,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToastPool
   _normalPrefab: {fileID: 1267333591300268444, guid: bc2afda001cf3434c8a3d3df247142a5, type: 3}
   _critPrefab: {fileID: -6839282229923769640, guid: 5b3fb149db6925c49b2cfff635a32dbc, type: 3}
-  _directPrefab: {fileID: -3797277448623558035, guid: 732558aca3c6ade4ba09948700699c78, type: 3}
-  _critDirectPrefab: {fileID: -6775912761072819833, guid: 4eb245a113cb56943a7555ed1aacaf4d, type: 3}
+  _directPrefab: {fileID: -6213158307780528023, guid: 732558aca3c6ade4ba09948700699c78, type: 3}
+  _critDirectPrefab: {fileID: 7175694018079202, guid: 4eb245a113cb56943a7555ed1aacaf4d, type: 3}
   _initialPoolSize: 10
 --- !u!114 &1403500194 stripped
 MonoBehaviour:

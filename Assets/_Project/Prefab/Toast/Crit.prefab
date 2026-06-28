@@ -182,17 +182,17 @@ MonoBehaviour:
   _rb: {fileID: 1322563723907134640}
   _spriteRenderer: {fileID: 8238428762717386503}
   _lifeTime: 2
-  _normalOffset: {x: -0.7, y: 1}
+  _normalOffset: {x: 1, y: 1}
   _normalMoveDuration: 0.45
   _normalFadeStart: 0.25
-  _critY: 1
-  _critX: 1
+  _critY: 9
+  _critX: 9
   _critLifeTime: 1
-  _critFadeDuration: 1
-  _directY: 1
-  _directX: 1
-  _directLifeTime: 3
-  _directFadeDuration: 2
-  _critDirectY: 1
-  _critDirectX: 1
+  _critFadeDuration: 0.5
+  _directY: 6
+  _directX: 7
+  _directLifeTime: 5
+  _directFadeDuration: 1
+  _critDirectY: 12
+  _critDirectX: 12
   _critDirectLifeTime: 1

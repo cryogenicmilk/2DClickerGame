@@ -56,7 +56,7 @@ public class ToastPool : MonoBehaviour
             toast = CreateToast(type, GetPrefab(type));
         }
 
-        toast.transform.SetParent(null);
+        toast.transform.SetParent(transform);
         toast.transform.SetPositionAndRotation(position, rotation);
         toast.gameObject.SetActive(true);
 

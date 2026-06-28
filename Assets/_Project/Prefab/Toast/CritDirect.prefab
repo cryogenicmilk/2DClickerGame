@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8238428762717386503}
   - component: {fileID: 6989787992409794975}
   - component: {fileID: 1322563723907134640}
-  - component: {fileID: -6775912761072819833}
+  - component: {fileID: 7175694018079202}
   m_Layer: 0
   m_Name: CritDirect
   m_TagString: Untagged
@@ -167,7 +167,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-6775912761072819833
+--- !u!114 &7175694018079202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,17 +182,17 @@ MonoBehaviour:
   _rb: {fileID: 1322563723907134640}
   _spriteRenderer: {fileID: 8238428762717386503}
   _lifeTime: 2
-  _normalOffset: {x: -0.7, y: 1}
+  _normalOffset: {x: 1, y: 1}
   _normalMoveDuration: 0.45
   _normalFadeStart: 0.25
-  _critY: 1
-  _critX: 1
-  _critLifeTime: 1
+  _critY: 4
+  _critX: 4
+  _critLifeTime: 2
   _critFadeDuration: 1
-  _directY: 1
-  _directX: 1
-  _directLifeTime: 3
-  _directFadeDuration: 2
-  _critDirectY: 12
-  _critDirectX: 12
+  _directY: 6
+  _directX: 7
+  _directLifeTime: 5
+  _directFadeDuration: 1
+  _critDirectY: 7
+  _critDirectX: 15
   _critDirectLifeTime: 1
