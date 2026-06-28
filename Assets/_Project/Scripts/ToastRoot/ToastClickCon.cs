@@ -14,9 +14,12 @@ public class ToastClickCon : MonoBehaviour
     [SerializeField] private ToastPool _toastPool;
     [SerializeField] Transform _toastSpawnPoint;
 
+    [Header("Flying Text")]
+    [SerializeField] private FlyingTextSpawner _flyingTextSpawner;
+
     [Header("Click Reaction")]
-    private Vector3 _defaultScale; // 記憶用
     [SerializeField] private Transform _toasterTrans;
+    private Vector3 _defaultScale; // 記憶用
 
     [SerializeField] private float _squashTime = 0.05f;
     [SerializeField] private float _stretchTime = 0.05f;
@@ -40,6 +43,9 @@ public class ToastClickCon : MonoBehaviour
 
         _scoreManager.AddScore(result.Damage);
         _uiManager.UpdateUI();
+
+        // フライングテキスト
+        _flyingTextSpawner.Spawn(result);
 
         // reaction
         if (_clickReactionCoroutine != null)
