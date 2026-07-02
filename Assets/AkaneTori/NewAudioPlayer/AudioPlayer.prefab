@@ -51,6 +51,10 @@ MonoBehaviour:
   seClips:
   - {fileID: 8300000, guid: b71ed90e878c494408d4124346ae608f, type: 3}
   - {fileID: 8300000, guid: 619a674b816ce5945a6ddbe20b75505b, type: 3}
+  - {fileID: 8300000, guid: ef0f8f11c51176f46a8ca654a031ffa0, type: 3}
+  - {fileID: 8300000, guid: d2c2e5956203ee6429fd8dd4b84a33fb, type: 3}
+  - {fileID: 8300000, guid: 65fbc90f04870c74e993564d480734e6, type: 3}
+  - {fileID: 8300000, guid: 8d4bfce64f9087c4ead335482257a457, type: 3}
   bgmSource: {fileID: 8160596815469472145}
   seSource: {fileID: 8265288344141209584}
   audioMixer: {fileID: 24100000, guid: c9bff273ce4367242a6a0e5246a2faa2, type: 2}
@@ -166,7 +170,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
