@@ -17,6 +17,7 @@ public class AudioUI : MonoBehaviour
 
     private void ToggleAudioPanel()
     {
+        AudioPlayer.Instance.PlaySE(6);
         _audioPanel.SetActive(!_audioPanel.activeSelf);
     }
 }
