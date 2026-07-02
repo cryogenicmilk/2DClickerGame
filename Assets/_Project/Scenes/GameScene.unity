@@ -4090,10 +4090,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1005369875}
     - target: {fileID: 4579216657963951269, guid: 3ef22c06f01ce074ab343df60962829e, type: 3}
-      propertyPath: _toasterReaction
-      value: 
-      objectReference: {fileID: 8687533305311617952}
-    - target: {fileID: 4579216657963951269, guid: 3ef22c06f01ce074ab343df60962829e, type: 3}
       propertyPath: _damageCalculator
       value: 
       objectReference: {fileID: 487606216}
@@ -4150,17 +4146,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ef22c06f01ce074ab343df60962829e, type: 3}
---- !u!114 &8687533305311617952 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8113373515354513519, guid: 3ef22c06f01ce074ab343df60962829e, type: 3}
-  m_PrefabInstance: {fileID: 8687533305311617951}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14cf6887606b71045a897e3acd1cd7bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ToasterReaction
 --- !u!114 &8854520705414005687 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8368724116311191761, guid: b562d626c55604f4c805cad20d77ed9e, type: 3}
