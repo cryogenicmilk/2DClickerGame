@@ -6,9 +6,6 @@ public class ToastProjectile : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
-    [Header("")]
-    [SerializeField] private float _lifeTime = 2f;
-
     [Header("Normal‚Ì“®‚«")]
     [SerializeField] private Vector2 _normalOffset = new Vector2(-0.7f, 1.0f);
     [SerializeField] private float _normalMoveDuration = 0.45f;
