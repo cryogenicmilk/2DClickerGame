@@ -8,6 +8,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private DamageCalculator _damageCalculator;
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private AutoToastGen _autoToastGen;
+    [SerializeField] private SaveManager _saveManager;
 
     [Header("ボタン")]
     [SerializeField] private Button _baseUpgradeButton;
@@ -79,6 +80,9 @@ public class UpgradeManager : MonoBehaviour
         _damageCalculator.AddBase();
 
         _baseCurrentCost = GetCost(_baseStartCost, _baseCostGrowh, _baseLv);
+
+        _saveManager.Save();
+
         RefreshButtonView();
         _uiManager.UpdateUI();
     }
@@ -105,6 +109,8 @@ public class UpgradeManager : MonoBehaviour
         _damageCalculator.AddCrit(_critAddRate);
 
         _critCurrentCost = GetCost(_critStartCost, _critCostGrowh, _critLv);
+
+        _saveManager.Save();
 
         RefreshButtonView();
         _uiManager.UpdateUI();
@@ -133,6 +139,8 @@ public class UpgradeManager : MonoBehaviour
 
         _directCurrentCost = GetCost(_directStartCost, _directCostGrowh, _directLv);
 
+        _saveManager.Save();
+
         RefreshButtonView();
         _uiManager.UpdateUI();
     }
@@ -152,6 +160,8 @@ public class UpgradeManager : MonoBehaviour
         _addToasterLv++;
 
         _addToasterCurrentCost = GetCost(_addToasterStartCost, _addToasterCostGrowh, _addToasterLv);
+
+        _saveManager.Save();
 
         RefreshButtonView();
         _uiManager.UpdateUI();
@@ -204,4 +214,49 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
+    //====================================================================
+    //ロード
+    //====================================================================
+    public void LoadLevels(int baseLevel, int critLevel, int directLevel, int toasterLevel)
+    {
+        _baseLv = baseLevel;
+        _critLv = critLevel;
+        _directLv = directLevel;
+        _addToasterLv = toasterLevel;
+
+        RecalculateCosts();
+        ApplyLoadedUpgradeEffects();
+        RefreshButtonView();
+    }
+
+    private void RecalculateCosts()
+    {
+        _baseCurrentCost = GetCost(_baseStartCost, _baseCostGrowh, _baseLv);
+        _critCurrentCost = GetCost(_critStartCost, _critCostGrowh, _critLv);
+        _directCurrentCost = GetCost(_directStartCost, _directCostGrowh, _directLv);
+        _addToasterCurrentCost = GetCost(_addToasterStartCost, _addToasterCostGrowh, _addToasterLv);
+    }
+
+    private void ApplyLoadedUpgradeEffects()
+    {
+        for (int i = 1; i < _baseLv; i++)
+        {
+            _damageCalculator.AddBase();
+        }
+
+        for (int i = 1; i < _critLv; i++)
+        {
+            _damageCalculator.AddCrit(_critAddRate);
+        }
+
+        for (int i = 1; i < _directLv; i++)
+        {
+            _damageCalculator.AddDirect(_directAddRate);
+        }
+
+        for (int i = 1; i < _addToasterLv; i++)
+        {
+            _autoToastGen.AddAutoToaster();
+        }
+    }
 }

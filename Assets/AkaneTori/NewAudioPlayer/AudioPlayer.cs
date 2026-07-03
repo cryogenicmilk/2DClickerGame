@@ -10,6 +10,9 @@ public class AudioPlayer : MonoBehaviour
 {
     public static AudioPlayer Instance;
 
+    private const string BgmVolumeKey = "BgmVolume";
+    private const string SeVolumeKey = "SeVolume";
+
     [Header("AudioClips")]
 
     [SerializeField]
@@ -97,10 +100,25 @@ public class AudioPlayer : MonoBehaviour
             Destroy(gameObject);
         }
 
+        LoadVolume();
+    }
 
-        //âπó Çèâä˙ÇÃèÛë‘Ç…ê›íËÇ∑ÇÈ
-        AudioMixer.SetFloat("BGMParam", bgmDecibel);
-        AudioMixer.SetFloat("SEParam", seDecibel);
+    private void LoadVolume()
+    {
+        float bgmVolume = PlayerPrefs.GetFloat(BgmVolumeKey, BGM_Volume);
+        float seVolume = PlayerPrefs.GetFloat(SeVolumeKey, SE_Volume);
+
+        BGM_Volume = bgmVolume;
+        SE_Volume = seVolume;
+    }
+
+    public void SaveVolume()
+    {
+        PlayerPrefs.SetFloat(BgmVolumeKey, BGM_Volume);
+        PlayerPrefs.SetFloat(SeVolumeKey, SE_Volume);
+        PlayerPrefs.Save();
+
+        Debug.Log($"âπó ï€ë∂ BGM: {BGM_Volume}, SE: {SE_Volume}");
     }
 
     //====================================================================

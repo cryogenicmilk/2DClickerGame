@@ -1038,6 +1038,7 @@ MonoBehaviour:
   _damageCalculator: {fileID: 487606216}
   _uiManager: {fileID: 885071791}
   _autoToastGen: {fileID: 1039034056}
+  _saveManager: {fileID: 559798356}
   _baseUpgradeButton: {fileID: 915444609}
   _critUpgradeButton: {fileID: 957391441}
   _directUpgradeButton: {fileID: 842231609}
@@ -1893,6 +1894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SaveManager
   _scoreManager: {fileID: 1005369875}
   _upgradeManager: {fileID: 257110122}
+  _uiManager: {fileID: 885071791}
 --- !u!1 &576840414
 GameObject:
   m_ObjectHideFlags: 0
@@ -4757,6 +4759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899abc1a80024324c8a07c069bf1a0c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _saveManager: {fileID: 559798356}
 --- !u!4 &1633343188
 Transform:
   m_ObjectHideFlags: 0

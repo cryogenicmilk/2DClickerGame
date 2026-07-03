@@ -20,9 +20,19 @@ public class VolumeUI : MonoBehaviour
         seSlider.value = AudioPlayer.Instance.SE_Volume;
 
         ///ƒCƒxƒ“ƒg‚Ì“o˜^
-        //BGM‚Ì’²®
-        bgmSlider.onValueChanged.AddListener((value) => { AudioPlayer.Instance.BGM_Volume = value; });
-        //SE‚Ì’²®
-        seSlider.onValueChanged.AddListener((value) => { AudioPlayer.Instance.SE_Volume = value; });
+        bgmSlider.onValueChanged.AddListener(OnChangedBGMVolume);
+        seSlider.onValueChanged.AddListener(OnChangedSEVolume);
+    }
+
+    private void OnChangedBGMVolume(float value)
+    {
+        AudioPlayer.Instance.BGM_Volume = value;
+        AudioPlayer.Instance.SaveVolume();
+    }
+
+    private void OnChangedSEVolume(float value)
+    {
+        AudioPlayer.Instance.SE_Volume = value;
+        AudioPlayer.Instance.SaveVolume();
     }
 }
