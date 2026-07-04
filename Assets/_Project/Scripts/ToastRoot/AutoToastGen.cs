@@ -24,6 +24,16 @@ public class AutoToastGen : MonoBehaviour
         SpawnAutoToaster();
     }
 
+    // 現状トースターのレベルに応じて生成数を保存しているが、位置は保存していないため、ロード時にランダムな位置に生成される
+    public void LoadAutoToasters(int level)
+    {
+        _autoLevel = level;
+        for (int i = 0; i < _autoLevel; i++)
+        {
+            SpawnAutoToaster();
+        }
+    }
+
     private void SpawnAutoToaster()
     {
         Vector3 spawnPosition = GetRandomPositionInBox();

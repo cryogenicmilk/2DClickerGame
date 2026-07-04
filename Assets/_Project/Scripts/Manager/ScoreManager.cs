@@ -18,7 +18,7 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(double score)
     {
         _currentScore += score;
-        Debug.Log("ScoreManager:現在のスコア: " + _currentScore);
+        //Debug.Log("ScoreManager:現在のスコア: " + _currentScore);
     }
 
     // データロード
