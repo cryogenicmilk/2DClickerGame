@@ -59,6 +59,8 @@ public class TitleToGame : MonoBehaviour
         _mainCamera.orthographicSize = _titleSize;
 
         _titleUI.alpha = 1f;
+        _titleUI.interactable = true;
+        _titleUI.blocksRaycasts = true;
 
         _gameUI.alpha = 0f;
         _gameUI.interactable = false;
@@ -68,6 +70,10 @@ public class TitleToGame : MonoBehaviour
     private void StartGame()
     {
         _isStarted = true;
+
+        // uo!
+        _titleUI.interactable = false;
+        _titleUI.blocksRaycasts = false;
 
         Vector3 gameCameraPosition = new Vector3(
             _gameCameraPoint.position.x,
@@ -88,7 +94,6 @@ public class TitleToGame : MonoBehaviour
         sequence.Join(_titleUI.DOFade(0f, 0.4f));
 
         sequence.Join(_gameUI.DOFade(1f, 0.4f).SetDelay(_duration * 0.5f));
-
         sequence.OnComplete(() =>
         {
             if (_gameUI != null)
